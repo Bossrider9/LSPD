@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Los Santos Sheriff Department</title>
+    <title>Los Santos Police Department</title>
     <style>
         /* Globálne štýly a Reset */
         * {
@@ -14,15 +14,15 @@
         }
 
         body {
-            background-color: #0b0c10;
+            background-color: #080a10;
             color: #ffffff;
             overflow-x: hidden;
         }
 
         /* Navigačné menu */
         header {
-            background-color: rgba(11, 12, 16, 0.95);
-            border-bottom: 2px solid #1f2833;
+            background-color: rgba(8, 10, 16, 0.95);
+            border-bottom: 2px solid #1a233a;
             position: fixed;
             width: 100%;
             top: 0;
@@ -47,7 +47,7 @@
             font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #c5a059; /* Zlatistá farba šerifov */
+            color: #3b82f6; /* LSPD Policajná Modrá */
         }
 
         nav ul {
@@ -72,7 +72,7 @@
         }
 
         nav ul li a:hover {
-            color: #45f3ff;
+            color: #3b82f6;
         }
 
         /* Dropdown menu pre Divízie */
@@ -83,13 +83,14 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #1f2833;
-            min-width: 220px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+            background-color: #111827;
+            min-width: 240px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.6);
             top: 100%;
             left: 0;
             border-radius: 4px;
             padding: 10px 0;
+            border: 1px solid #1a233a;
         }
 
         .dropdown-content a {
@@ -101,15 +102,15 @@
         }
 
         .dropdown-content a:hover {
-            background-color: #c5a059;
-            color: #0b0c10;
+            background-color: #3b82f6;
+            color: #ffffff;
         }
 
         /* Hero Sekcia (Úvodný obrovský banner) */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(11, 12, 16, 0.7), rgba(11, 12, 16, 0.9)), 
-                        url('https://i.imgur.com/your-backup-image.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(8, 10, 16, 0.75), rgba(8, 10, 16, 0.95)), 
+                        url('https://i.imgur.com/6Xw6f5o.png') no-repeat center center/cover;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -118,9 +119,9 @@
         }
 
         .hero-box {
-            background: rgba(0, 0, 0, 0.65);
+            background: rgba(0, 0, 0, 0.75);
             padding: 40px 60px;
-            border: 2px solid #15322c;
+            border: 2px solid #1d4ed8;
             border-radius: 5px;
             max-width: 800px;
         }
@@ -134,13 +135,13 @@
 
         .hero-box p {
             font-style: italic;
-            color: #c5a059;
+            color: #9ca3af;
             font-size: 1.3rem;
             margin-bottom: 30px;
         }
 
-        .btn-green {
-            background-color: #238636;
+        .btn-blue {
+            background-color: #1d4ed8;
             color: white;
             padding: 12px 35px;
             border: none;
@@ -152,8 +153,8 @@
             transition: background 0.3s;
         }
 
-        .btn-green:hover {
-            background-color: #2ea043;
+        .btn-blue:hover {
+            background-color: #2563eb;
         }
 
         /* Informačná lišta (System, Code atd.) */
@@ -165,12 +166,12 @@
             font-size: 0.8rem;
             font-weight: bold;
             letter-spacing: 1px;
-            border-bottom: 1px solid #1f2833;
+            border-bottom: 1px solid #1a233a;
             text-transform: uppercase;
         }
 
-        .status-bar span { color: #45f3ff; }
-        .status-bar .green-text { color: #2ea043; }
+        .status-bar span { color: #3b82f6; }
+        .status-bar .blue-text { color: #60a5fa; }
 
         /* Sekcia Technologická převaha */
         .tech-section {
@@ -183,7 +184,7 @@
         .tech-img {
             flex: 1;
             border-radius: 8px;
-            border: 1px solid #1f2833;
+            border: 1px solid #1a233a;
             max-width: 500px;
         }
 
@@ -201,7 +202,7 @@
         /* Divízie Grid */
         .divisions-section {
             padding: 60px 10%;
-            background-color: #07080a;
+            background-color: #05070b;
             text-align: center;
         }
 
@@ -219,8 +220,8 @@
         }
 
         .card {
-            background-color: #0b0c10;
-            border: 1px solid #1f2833;
+            background-color: #080a10;
+            border: 1px solid #1a233a;
             border-radius: 6px;
             padding: 30px 20px;
             transition: transform 0.3s, border-color 0.3s;
@@ -228,7 +229,7 @@
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: #c5a059;
+            border-color: #3b82f6;
         }
 
         .card h4 {
@@ -236,11 +237,12 @@
             margin-bottom: 15px;
             font-size: 1.1rem;
             letter-spacing: 1px;
+            color: #60a5fa;
         }
 
         .card p {
             font-size: 0.9rem;
-            color: #c5c6c7;
+            color: #9ca3af;
             line-height: 1.5;
         }
 
@@ -254,12 +256,12 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 30px;
-            border-bottom: 2px solid #1f2833;
+            border-bottom: 2px solid #1a233a;
             padding-bottom: 10px;
         }
 
         .news-header h3 { font-size: 2rem; text-transform: uppercase; }
-        .news-link { color: #c5a059; text-decoration: none; font-weight: bold; }
+        .news-link { color: #3b82f6; text-decoration: none; font-weight: bold; }
 
         .news-container {
             display: flex;
@@ -267,17 +269,17 @@
         }
 
         .news-box {
-            background-color: #12141c;
-            border: 1px solid #1f2833;
+            background-color: #0f131e;
+            border: 1px solid #1a233a;
             padding: 30px;
             flex: 1;
             border-radius: 6px;
         }
 
-        .news-date { color: #c5a059; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
+        .news-date { color: #9ca3af; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
         .news-box h4 { font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase; }
-        .news-box p { color: #c5c6c7; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
-        .read-more { color: #2ea043; text-decoration: none; font-weight: bold; }
+        .news-box p { color: #9ca3af; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+        .read-more { color: #3b82f6; text-decoration: none; font-weight: bold; }
 
         /* Footer */
         footer {
@@ -285,8 +287,8 @@
             text-align: center;
             padding: 20px;
             font-size: 0.8rem;
-            color: #666;
-            border-top: 1px solid #1f2833;
+            color: #4b5563;
+            border-top: 1px solid #1a233a;
         }
     </style>
 </head>
@@ -294,7 +296,8 @@
 
     <header>
         <div class="logo-section">
-            <img src="https://i.imgur.com/M6LshX8.png" alt="LSPD Logo"> <h1>Los Santos Sheriff Department</h1>
+            <img src="https://i.imgur.com/M6LshX8.png" alt="LSPD Logo">
+            <h1>Los Santos Police Department</h1>
         </div>
         <nav>
             <ul>
@@ -305,10 +308,10 @@
                 <li class="dropdown">
                     <a href="#">Divízie ▾</a>
                     <div class="dropdown-content">
-                        <a href="seb.html">Special Enforcement Bureau</a>
-                        <a href="asu.html">Air Support Unit</a>
+                        <a href="swat.html">Special Weapons and Tactics (S.W.A.T.)</a>
+                        <a href="asd.html">Air Support Division</a>
                         <a href="ted.html">Traffic Enforcement Division</a>
-                        <a href="k9.html">Canine Unit</a>
+                        <a href="k9.html">K-9 Unit</a>
                         <a href="db.html">Detective Bureau</a>
                         <a href="ossb.html">Operation Street Safety Bureau</a>
                     </div>
@@ -320,19 +323,19 @@
         </nav>
     </header>
 
-    <section class="hero" style="background-image: linear-gradient(rgba(11, 12, 16, 0.7), rgba(11, 12, 16, 0.9)), url('https://i.imgur.com/6Xw6f5o.png');">
+    <section class="hero">
         <div class="hero-box">
-            <h2>Los Santos Sheriff Department</h2>
-            <p>A Tradition Of Service Since 1850</p>
-            <a href="o-nas.html" class="btn-green">O nás</a>
+            <h2>Los Santos Police Department</h2>
+            <p>To Protect and to Serve</p>
+            <a href="o-nas.html" class="btn-blue">O nás</a>
         </div>
     </section>
 
     <div class="status-bar">
-        <div>SYSTEM: <span class="green-text">ONLINE</span></div>
+        <div>SYSTEM: <span class="blue-text">ONLINE</span></div>
         <div>DISTRICT: <span>ALL AREAS PATROLLED</span></div>
         <div>CODE: <span>1 - NORMAL OPERATIONS</span></div>
-        <div>RECRUITMENT: <span class="green-text">IS OPEN</span></div>
+        <div>RECRUITMENT: <span class="blue-text">IS OPEN</span></div>
     </div>
 
     <section class="tech-section">
@@ -344,14 +347,14 @@
     </section>
 
     <section class="divisions-section">
-        <h3>Divize LSSD</h3>
+        <h3>Divize LSPD</h3>
         <div class="grid-container">
             <div class="card">
-                <h4>Special Enforcement Bureau</h4>
+                <h4>S.W.A.T.</h4>
                 <p>Vysoce specializovaná jednotka zaměřená na řešení krizových situací, taktické zásahy a ochranu civilistů.</p>
             </div>
             <div class="card">
-                <h4>Air Support Unit</h4>
+                <h4>Air Support Division</h4>
                 <p>Vzdušná podpora, pátrání po zločincích a záchranné mise v těžko dostupném terénu.</p>
             </div>
             <div class="card">
@@ -359,7 +362,7 @@
                 <p>Specialisté na vysokorychlostní stíhání a zajištění bezpečnosti na dálnicích San Andreas.</p>
             </div>
             <div class="card">
-                <h4>Canine Unit</h4>
+                <h4>K-9 Unit</h4>
                 <p>Nasazení psovodů pro detekci omamných látek a zneškodnění nebezpečných pachatelů.</p>
             </div>
             <div class="card">
@@ -371,7 +374,7 @@
                 <p>Monitorování a potírání nezákonných aktivit gangů přímo v ulicích města.</p>
             </div>
         </div>
-        <a href="#" class="btn-green">Všechny divize</a>
+        <a href="#" class="btn-blue">Všechny divize</a>
     </section>
 
     <section class="news-section">
@@ -383,20 +386,20 @@
             <div class="news-box">
                 <div class="news-date">14. DUBNA 2026</div>
                 <h4>Modernizace vozového parku TED</h4>
-                <p>Nové vysokorychlostní interceptory nasazeny do služby v oblasti Sandy Shores k potlačení nelegálních závodů.</p>
+                <p>Nové vysokorychlostní interceptory nasazeny do služby v oblasti Mission Row k potlačení nelegálních závodů.</p>
                 <a href="#" class="read-more">ČÍST HLÁŠENÍ</a>
             </div>
             <div class="news-box">
                 <div class="news-date">13. DUBNA 2026</div>
                 <h4>Strukturální změny ve vedení</h4>
-                <p>Ministerstvo spravedlnosti oznamuje změny na nejvyšších postech. Novým Sheriffem byl jmenován Ryan Reyes.</p>
+                <p>Ministerstvo spravedlnosti oznamuje změny na nejvyšších postech. Novým Chief of Police byl jmenován Ryan Reyes.</p>
                 <a href="#" class="read-more">ČÍST HLÁŠENÍ</a>
             </div>
         </div>
     </section>
 
     <footer>
-        los-santos-sheriff-department.html | © 2026 - All Rights Reserved. Created by kuby5688 / prezie patrik
+        los-santos-police-department.html | © 2026 - All Rights Reserved. Created by kuby5688 / prezie patrik
     </footer>
 
 </body>
