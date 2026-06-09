@@ -3,18 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Los Santos Police Department</title>
+    <title>Los Santos Sheriff Department</title>
     <style>
-        /* --- ZÁKLADNÉ NASTAVENIA A FARBY (POLICAJNÁ MODRÁ) --- */
-        :root {
-            --bg-dark: #0b0d11;
-            --bg-card: #121620;
-            --primary-blue: #1d4ed8;
-            --primary-hover: #1e40af;
-            --text-main: #ffffff;
-            --text-sub: #9ca3af;
-        }
-
+        /* Globálne štýly a Reset */
         * {
             margin: 0;
             padding: 0;
@@ -23,304 +14,389 @@
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
+            background-color: #0b0c10;
+            color: #ffffff;
+            overflow-x: hidden;
         }
 
-        /* --- NAVIGÁCIA (MENU) --- */
+        /* Navigačné menu */
         header {
-            background-color: rgba(18, 22, 32, 0.95);
+            background-color: rgba(11, 12, 16, 0.95);
+            border-bottom: 2px solid #1f2833;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid var(--primary-blue);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 15px 50px;
         }
 
-        .logo {
-            font-weight: bold;
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-section img {
+            height: 45px;
+        }
+
+        .logo-section h1 {
             font-size: 1.2rem;
+            text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--text-main);
+            color: #c5a059; /* Zlatistá farba šerifov */
         }
 
-        .nav-menu {
+        nav ul {
             display: flex;
             list-style: none;
             gap: 20px;
         }
 
-        .nav-menu a {
-            color: var(--text-main);
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #ffffff;
             text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
             font-weight: 600;
+            letter-spacing: 1px;
+            padding: 5px 10px;
             transition: color 0.3s;
-            font-size: 0.95rem;
         }
 
-        .nav-menu a:hover {
-            color: var(--primary-blue);
+        nav ul li a:hover {
+            color: #45f3ff;
         }
 
-        /* --- HERO SEKCIA (ÚVODNÁ FOTO) --- */
+        /* Dropdown menu pre Divízie */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1f2833;
+            min-width: 220px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+            top: 100%;
+            left: 0;
+            border-radius: 4px;
+            padding: 10px 0;
+        }
+
+        .dropdown-content a {
+            color: #ffffff;
+            padding: 10px 20px;
+            display: block;
+            text-transform: none;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #c5a059;
+            color: #0b0c10;
+        }
+
+        /* Hero Sekcia (Úvodný obrovský banner) */
         .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(11,13,17,0.85), rgba(11,13,17,0.98)), 
-                        url('https://images.unsplash.com/photo-1566908829743-c006cc1074a1?q=80&w=1920') no-repeat center center/cover;
-            /* TU HORE MÔŽEŠ ZMENIŤ LINK NA ÚVODNÚ FOTO LSPD NA POZADÍ */
+            height: 100vh;
+            background: linear-gradient(rgba(11, 12, 16, 0.7), rgba(11, 12, 16, 0.9)), 
+                        url('https://i.imgur.com/your-backup-image.jpg') no-repeat center center/cover;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
-            margin-top: 60px;
+            padding-top: 80px;
         }
 
-        .hero h1 {
+        .hero-box {
+            background: rgba(0, 0, 0, 0.65);
+            padding: 40px 60px;
+            border: 2px solid #15322c;
+            border-radius: 5px;
+            max-width: 800px;
+        }
+
+        .hero-box h2 {
             font-size: 3rem;
+            text-transform: uppercase;
             margin-bottom: 10px;
             letter-spacing: 2px;
-            text-transform: uppercase;
         }
 
-        .hero p {
-            color: var(--text-sub);
+        .hero-box p {
             font-style: italic;
-            font-size: 1.2rem;
-            margin-bottom: 25px;
+            color: #c5a059;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
         }
 
-        .btn {
-            background-color: var(--primary-blue);
+        .btn-green {
+            background-color: #238636;
             color: white;
-            padding: 12px 30px;
-            text-decoration: none;
+            padding: 12px 35px;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
             font-weight: bold;
-            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
             transition: background 0.3s;
-            text-transform: uppercase;
         }
 
-        .btn:hover {
-            background-color: var(--primary-hover);
+        .btn-green:hover {
+            background-color: #2ea043;
         }
 
-        /* --- HLAVNÝ OBSAH --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            position: relative;
-            text-transform: uppercase;
+        /* Informačná lišta (System, Code atd.) */
+        .status-bar {
+            background-color: #000000;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
             letter-spacing: 1px;
+            border-bottom: 1px solid #1f2833;
+            text-transform: uppercase;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--primary-blue);
-            margin: 10px auto 0 auto;
+        .status-bar span { color: #45f3ff; }
+        .status-bar .green-text { color: #2ea043; }
+
+        /* Sekcia Technologická převaha */
+        .tech-section {
+            padding: 60px 10%;
+            display: flex;
+            align-items: center;
+            gap: 50px;
         }
 
-        /* --- DIVÍZIE (GRID) --- */
-        .grid {
+        .tech-img {
+            flex: 1;
+            border-radius: 8px;
+            border: 1px solid #1f2833;
+            max-width: 500px;
+        }
+
+        .tech-text {
+            flex: 1;
+        }
+
+        .tech-text h3 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        /* Divízie Grid */
+        .divisions-section {
+            padding: 60px 10%;
+            background-color: #07080a;
+            text-align: center;
+        }
+
+        .divisions-section h3 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            gap: 25px;
+            margin-bottom: 40px;
         }
 
         .card {
-            background-color: var(--bg-card);
+            background-color: #0b0c10;
+            border: 1px solid #1f2833;
             border-radius: 6px;
-            overflow: hidden;
-            border: 1px solid #1e2433;
-            transition: transform 0.3s;
+            padding: 30px 20px;
+            transition: transform 0.3s, border-color 0.3s;
         }
 
         .card:hover {
             transform: translateY(-5px);
+            border-color: #c5a059;
         }
 
-        .card-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background-color: #333;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card-content h3 {
-            margin-bottom: 10px;
-            color: var(--text-main);
-        }
-
-        .card-content p {
-            color: var(--text-sub);
-            font-size: 0.95rem;
-        }
-
-        /* --- VEDENIE DEPARTEMENTU (TEAM) --- */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .team-member {
-            background-color: var(--bg-card);
-            border-radius: 6px;
-            padding: 20px;
-            text-align: center;
-            border-top: 4px solid var(--primary-blue);
-        }
-
-        .avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 15px auto;
-            background-color: #333;
-            border: 2px solid var(--text-sub);
-        }
-
-        .team-member h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .team-member .rank {
-            color: var(--primary-blue);
-            font-weight: bold;
-            font-size: 0.9rem;
+        .card h4 {
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
         }
 
-        .team-member .info {
-            color: var(--text-sub);
-            font-size: 0.85rem;
+        .card p {
+            font-size: 0.9rem;
+            color: #c5c6c7;
+            line-height: 1.5;
         }
 
-        /* RESPOZIVITA (PRE MOBILY) */
-        @media (max-width: 768px) {
-            .nav-menu { display: none; }
-            .hero h1 { font-size: 2rem; }
+        /* Novinky */
+        .news-section {
+            padding: 60px 10%;
+        }
+
+        .news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #1f2833;
+            padding-bottom: 10px;
+        }
+
+        .news-header h3 { font-size: 2rem; text-transform: uppercase; }
+        .news-link { color: #c5a059; text-decoration: none; font-weight: bold; }
+
+        .news-container {
+            display: flex;
+            gap: 25px;
+        }
+
+        .news-box {
+            background-color: #12141c;
+            border: 1px solid #1f2833;
+            padding: 30px;
+            flex: 1;
+            border-radius: 6px;
+        }
+
+        .news-date { color: #c5a059; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
+        .news-box h4 { font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase; }
+        .news-box p { color: #c5c6c7; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+        .read-more { color: #2ea043; text-decoration: none; font-weight: bold; }
+
+        /* Footer */
+        footer {
+            background-color: #000000;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #666;
+            border-top: 1px solid #1f2833;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="nav-container">
-            <div class="logo">LOS SANTOS POLICE DEPARTMENT</div>
-            <ul class="nav-menu">
-                <li><a href="#uvod">ÚVOD</a></li>
-                <li><a href="#divizie">DIVÍZIE</a></li>
-                <li><a href="#vedenie">VEDENIE</a></li>
-                <li><a href="#nabor">RECRUITMENT</a></li>
-            </ul>
+        <div class="logo-section">
+            <img src="https://i.imgur.com/M6LshX8.png" alt="LSPD Logo"> <h1>Los Santos Sheriff Department</h1>
         </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Úvod</a></li>
+                <li><a href="o-nas.html">O nás</a></li>
+                <li><a href="vedenie.html">Vedenie</a></li>
+                <li><a href="kontakty.html">Kontakty</a></li>
+                <li class="dropdown">
+                    <a href="#">Divízie ▾</a>
+                    <div class="dropdown-content">
+                        <a href="seb.html">Special Enforcement Bureau</a>
+                        <a href="asu.html">Air Support Unit</a>
+                        <a href="ted.html">Traffic Enforcement Division</a>
+                        <a href="k9.html">Canine Unit</a>
+                        <a href="db.html">Detective Bureau</a>
+                        <a href="ossb.html">Operation Street Safety Bureau</a>
+                    </div>
+                </li>
+                <li><a href="stiznost.html">Stížnost</a></li>
+                <li><a href="trainee.html">Trainee Program</a></li>
+                <li><a href="novinky.html">Novinky</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="hero" id="uvod">
-        <h1>Los Santos Police Department</h1>
-        <p>"To Protect and to Serve"</p>
-        <a href="#nabor" class="btn">Pridaj sa k LSPD</a>
+    <section class="hero" style="background-image: linear-gradient(rgba(11, 12, 16, 0.7), rgba(11, 12, 16, 0.9)), url('https://i.imgur.com/6Xw6f5o.png');">
+        <div class="hero-box">
+            <h2>Los Santos Sheriff Department</h2>
+            <p>A Tradition Of Service Since 1850</p>
+            <a href="o-nas.html" class="btn-green">O nás</a>
+        </div>
     </section>
 
-    <div class="container">
-        
-        <section id="divizie">
-            <h2 class="section-title">Divízie LSPD</h2>
-            <div class="grid">
-                
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1578925518470-4def7a0f08bb?q=80&w=600" alt="SWAT" class="card-img">
-                    <div class="card-content">
-                        <h3>S.W.A.T.</h3>
-                        <p>Special Weapons and Tactics. Elitná taktická jednotka nasadzovaná na barikádované situácie, záchranu rukojemníkov a vysoko rizikové zatknutia.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1453847668862-487637052f8a?q=80&w=600" alt="Detective Bureau" class="card-img">
-                    <div class="card-content">
-                        <h3>Detective Bureau</h3>
-                        <p>Hĺbkové vyšetrovanie závažnej trestnej činnosti, zber dôkazov a boj proti organizovanému zločinu a gangom v uliciach Los Santos.</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1600456899121-68eda5705257?q=80&w=600" alt="Traffic Division" class="card-img">
-                    <div class="card-content">
-                        <h3>Traffic Enforcement</h3>
-                        <p>Dohľad nad bezpečnosťou cestnej premávky, riešenie dopravných nehôd a eliminácia nelegálnych pouličných závodov.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <hr style="border: 0; border-top: 1px solid #1e2433; margin: 40px 0;">
-
-        <section id="vedenie">
-            <h2 class="section-title">Vedenie departementu</h2>
-            <div class="team-grid">
-                
-                <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300" alt="Chief" class="avatar">
-                    <h4>Ryan Reyes</h4>
-                    <div class="rank">Chief of Police</div>
-                    <p class="info">Najvyšší veliteľ LSPD, zodpovedný za strategické riadenie a rozpočet.</p>
-                </div>
-
-                <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300" alt="Assistant Chief" class="avatar">
-                    <h4>James Cortés</h4>
-                    <div class="rank">Assistant Chief</div>
-                    <p class="info">Zástupca veliteľa, dohliada na denné operácie a vnútornú kontrolu.</p>
-                </div>
-
-                <div class="team-member">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=300" alt="Captain" class="avatar">
-                    <h4>John Walker</h4>
-                    <div class="rank">Captain</div>
-                    <p class="info">Veliteľ hlavnej stanice LSPD, zodpovedný za personál a hliadky.</p>
-                </div>
-
-            </div>
-        </section>
-
+    <div class="status-bar">
+        <div>SYSTEM: <span class="green-text">ONLINE</span></div>
+        <div>DISTRICT: <span>ALL AREAS PATROLLED</span></div>
+        <div>CODE: <span>1 - NORMAL OPERATIONS</span></div>
+        <div>RECRUITMENT: <span class="green-text">IS OPEN</span></div>
     </div>
 
-    <footer style="background-color: var(--bg-card); text-align: center; padding: 40px 20px; border-top: 1px solid #1e2433;" id="nabor">
-        <h3 style="margin-bottom: 10px;">Chceš slúžiť mestu Los Santos?</h3>
-        <p style="color: var(--text-sub); margin-bottom: 20px;">Nábor do policajnej akadémie LSPD je otvorený.</p>
-        <a href="https://discord.gg/" target="_blank" class="btn" style="background-color: #5865F2;">Otvoriť Discord Nábor</a>
+    <section class="tech-section">
+        <img src="https://i.imgur.com/7bA7j5b.png" alt="LSPD Autá" class="tech-img">
+        <div class="tech-text">
+            <h3>Technologická převaha</h3>
+            <p>Zločin v Los Santos se vyvíjí, my jsme krok před ním. Naše vybavení není jen nástroj, je to naše výhoda. Pokročilé komunikační ředitelství pro bezpečné operace. Taktické vybavení testované v nejnáročnějších podmínkách.</p>
+        </div>
+    </section>
+
+    <section class="divisions-section">
+        <h3>Divize LSSD</h3>
+        <div class="grid-container">
+            <div class="card">
+                <h4>Special Enforcement Bureau</h4>
+                <p>Vysoce specializovaná jednotka zaměřená na řešení krizových situací, taktické zásahy a ochranu civilistů.</p>
+            </div>
+            <div class="card">
+                <h4>Air Support Unit</h4>
+                <p>Vzdušná podpora, pátrání po zločincích a záchranné mise v těžko dostupném terénu.</p>
+            </div>
+            <div class="card">
+                <h4>Traffic Enforcement Division</h4>
+                <p>Specialisté na vysokorychlostní stíhání a zajištění bezpečnosti na dálnicích San Andreas.</p>
+            </div>
+            <div class="card">
+                <h4>Canine Unit</h4>
+                <p>Nasazení psovodů pro detekci omamných látek a zneškodnění nebezpečných pachatelů.</p>
+            </div>
+            <div class="card">
+                <h4>Detective Bureau</h4>
+                <p>Hloubkové vyšetřování trestné činnosti a sběr důkazů pro spravedlivý proces.</p>
+            </div>
+            <div class="card">
+                <h4>Operation Street Safety Bureau</h4>
+                <p>Monitorování a potírání nezákonných aktivit gangů přímo v ulicích města.</p>
+            </div>
+        </div>
+        <a href="#" class="btn-green">Všechny divize</a>
+    </section>
+
+    <section class="news-section">
+        <div class="news-header">
+            <h3>Novinky ve sboru</h3>
+            <a href="novinky.html" class="news-link">VŠECHNY NOVINKY »</a>
+        </div>
+        <div class="news-container">
+            <div class="news-box">
+                <div class="news-date">14. DUBNA 2026</div>
+                <h4>Modernizace vozového parku TED</h4>
+                <p>Nové vysokorychlostní interceptory nasazeny do služby v oblasti Sandy Shores k potlačení nelegálních závodů.</p>
+                <a href="#" class="read-more">ČÍST HLÁŠENÍ</a>
+            </div>
+            <div class="news-box">
+                <div class="news-date">13. DUBNA 2026</div>
+                <h4>Strukturální změny ve vedení</h4>
+                <p>Ministerstvo spravedlnosti oznamuje změny na nejvyšších postech. Novým Sheriffem byl jmenován Ryan Reyes.</p>
+                <a href="#" class="read-more">ČÍST HLÁŠENÍ</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        los-santos-sheriff-department.html | © 2026 - All Rights Reserved. Created by kuby5688 / prezie patrik
     </footer>
 
 </body>
