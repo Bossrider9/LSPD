@@ -39,25 +39,20 @@
             gap: 15px;
         }
 
-        .logo-section img {
-            height: 45px;
-        }
+        .logo-section img { height: 45px; }
 
         .logo-section h1 {
             font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #3b82f6; /* LSPD Policajná Modrá */
+            color: #3b82f6;
         }
 
         nav ul {
             display: flex;
             list-style: none;
             gap: 20px;
-        }
-
-        nav ul li {
-            position: relative;
+            align-items: center;
         }
 
         nav ul li a {
@@ -71,44 +66,23 @@
             transition: color 0.3s;
         }
 
-        nav ul li a:hover {
-            color: #3b82f6;
-        }
+        nav ul li a:hover, .admin-btn:hover { color: #3b82f6; }
 
-        /* Dropdown menu pre Divízie */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #111827;
-            min-width: 240px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.6);
-            top: 100%;
-            left: 0;
+        .admin-btn {
+            background: none;
+            border: 1px solid #3b82f6;
+            color: #ffffff;
+            padding: 5px 12px;
             border-radius: 4px;
-            padding: 10px 0;
-            border: 1px solid #1a233a;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.8rem;
+            text-transform: uppercase;
         }
 
-        .dropdown-content a {
-            color: #ffffff;
-            padding: 10px 20px;
-            display: block;
-            text-transform: none;
-            font-size: 0.9rem;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #3b82f6;
-            color: #ffffff;
-        }
-
-        /* Hero Sekcia (Úvodný obrovský banner) */
+        /* Hero Sekcia */
         .hero {
-            height: 100vh;
+            height: 60vh;
             background: linear-gradient(rgba(8, 10, 16, 0.75), rgba(8, 10, 16, 0.95)), 
                         url('https://i.imgur.com/6Xw6f5o.png') no-repeat center center/cover;
             display: flex;
@@ -123,172 +97,90 @@
             padding: 40px 60px;
             border: 2px solid #1d4ed8;
             border-radius: 5px;
-            max-width: 800px;
         }
 
-        .hero-box h2 {
-            font-size: 3rem;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
+        .hero-box h2 { font-size: 2.5rem; text-transform: uppercase; margin-bottom: 10px; }
+        .hero-box p { color: #9ca3af; font-size: 1.1rem; }
 
-        .hero-box p {
-            font-style: italic;
-            color: #9ca3af;
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-        }
-
-        .btn-blue {
-            background-color: #1d4ed8;
-            color: white;
-            padding: 12px 35px;
-            border: none;
-            border-radius: 5px;
-            text-transform: uppercase;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-
-        .btn-blue:hover {
-            background-color: #2563eb;
-        }
-
-        /* Informačná lišta (System, Code atd.) */
-        .status-bar {
-            background-color: #000000;
-            display: flex;
-            justify-content: space-around;
-            padding: 15px 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            border-bottom: 1px solid #1a233a;
-            text-transform: uppercase;
-        }
-
-        .status-bar span { color: #3b82f6; }
-        .status-bar .blue-text { color: #60a5fa; }
-
-        /* Sekcia Technologická převaha */
-        .tech-section {
-            padding: 60px 10%;
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .tech-img {
-            flex: 1;
-            border-radius: 8px;
-            border: 1px solid #1a233a;
-            max-width: 500px;
-        }
-
-        .tech-text {
-            flex: 1;
-        }
-
-        .tech-text h3 {
-            font-size: 2rem;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-
-        /* Divízie Grid */
-        .divisions-section {
-            padding: 60px 10%;
-            background-color: #05070b;
-            text-align: center;
-        }
-
-        .divisions-section h3 {
-            font-size: 2rem;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-        }
-
-        .grid-container {
+        /* Vedenie Sekcia */
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+        .section-title { font-size: 2rem; text-transform: uppercase; margin-bottom: 30px; border-bottom: 2px solid #1a233a; padding-bottom: 10px; }
+        
+        .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
+            gap: 30px;
+            margin-bottom: 60px;
         }
 
-        .card {
-            background-color: #080a10;
+        .team-card {
+            background-color: #0f131e;
             border: 1px solid #1a233a;
             border-radius: 6px;
-            padding: 30px 20px;
-            transition: transform 0.3s, border-color 0.3s;
+            padding: 25px;
+            text-align: center;
+            position: relative;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #3b82f6;
-        }
-
-        .card h4 {
-            text-transform: uppercase;
+        .avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
             margin-bottom: 15px;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            color: #60a5fa;
+            border: 3px solid #3b82f6;
         }
 
-        .card p {
-            font-size: 0.9rem;
-            color: #9ca3af;
-            line-height: 1.5;
-        }
+        .team-card h4 { font-size: 1.3rem; margin-bottom: 5px; text-transform: uppercase; }
+        .rank { color: #3b82f6; font-weight: bold; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 15px; }
+        .bio { color: #9ca3af; font-size: 0.95rem; line-height: 1.5; }
 
-        /* Novinky */
-        .news-section {
-            padding: 60px 10%;
-        }
-
-        .news-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #1a233a;
-            padding-bottom: 10px;
-        }
-
-        .news-header h3 { font-size: 2rem; text-transform: uppercase; }
-        .news-link { color: #3b82f6; text-decoration: none; font-weight: bold; }
-
-        .news-container {
-            display: flex;
-            gap: 25px;
-        }
-
+        /* Novinky Sekcia */
+        .news-container { display: flex; flex-direction: column; gap: 20px; }
         .news-box {
             background-color: #0f131e;
             border: 1px solid #1a233a;
-            padding: 30px;
-            flex: 1;
+            padding: 25px;
             border-radius: 6px;
         }
+        .news-date { color: #3b82f6; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
+        .news-box h4 { font-size: 1.4rem; margin-bottom: 10px; text-transform: uppercase; }
+        .news-box p { color: #9ca3af; font-size: 1rem; line-height: 1.6; }
 
-        .news-date { color: #9ca3af; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
-        .news-box h4 { font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase; }
-        .news-box p { color: #9ca3af; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
-        .read-more { color: #3b82f6; text-decoration: none; font-weight: bold; }
+        /* Admin Prvky (Predvolene skryté) */
+        .admin-edit, #add-news-form, #export-section { display: none; }
+        
+        .admin-edit input, .admin-edit textarea, #add-news-form input, #add-news-form textarea {
+            width: 100%;
+            background-color: #080a10;
+            border: 1px solid #3b82f6;
+            color: white;
+            padding: 8px;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
 
-        /* Footer */
-        footer {
-            background-color: #000000;
-            text-align: center;
+        .btn-action {
+            background-color: #1d4ed8;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .btn-action:hover { background-color: #2563eb; }
+
+        #export-section {
+            background-color: #1e1b4b;
+            border: 2px dashed #6366f1;
             padding: 20px;
-            font-size: 0.8rem;
-            color: #4b5563;
-            border-top: 1px solid #1a233a;
+            margin-top: 40px;
+            border-radius: 6px;
+        }
+        #export-code {
+            width: 100%; height: 150px; background-color: #000; color: #10b981; font-family: monospace; padding: 10px; margin-top: 10px;
         }
     </style>
 </head>
@@ -296,111 +188,158 @@
 
     <header>
         <div class="logo-section">
-            <img src="https://i.imgur.com/M6LshX8.png" alt="LSPD Logo">
             <h1>Los Santos Police Department</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Úvod</a></li>
-                <li><a href="o-nas.html">O nás</a></li>
-                <li><a href="vedenie.html">Vedenie</a></li>
-                <li><a href="kontakty.html">Kontakty</a></li>
-                <li class="dropdown">
-                    <a href="#">Divízie ▾</a>
-                    <div class="dropdown-content">
-                        <a href="swat.html">Special Weapons and Tactics (S.W.A.T.)</a>
-                        <a href="asd.html">Air Support Division</a>
-                        <a href="ted.html">Traffic Enforcement Division</a>
-                        <a href="k9.html">K-9 Unit</a>
-                        <a href="db.html">Detective Bureau</a>
-                        <a href="ossb.html">Operation Street Safety Bureau</a>
-                    </div>
-                </li>
-                <li><a href="stiznost.html">Stížnost</a></li>
-                <li><a href="trainee.html">Trainee Program</a></li>
-                <li><a href="novinky.html">Novinky</a></li>
+                <li><a href="#">Úvod</a></li>
+                <li><button class="admin-btn" onclick="loginAdmin()">🔒 Admin Login</button></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero">
         <div class="hero-box">
-            <h2>Los Santos Police Department</h2>
+            <h2>LSPD Administrácia</h2>
             <p>To Protect and to Serve</p>
-            <a href="o-nas.html" class="btn-blue">O nás</a>
         </div>
     </section>
 
-    <div class="status-bar">
-        <div>SYSTEM: <span class="blue-text">ONLINE</span></div>
-        <div>DISTRICT: <span>ALL AREAS PATROLLED</span></div>
-        <div>CODE: <span>1 - NORMAL OPERATIONS</span></div>
-        <div>RECRUITMENT: <span class="blue-text">IS OPEN</span></div>
-    </div>
+    <div class="container">
+        
+        <h3 class="section-title">Vedenie sboru</h3>
+        <div class="team-grid" id="team-container">
+            
+            <div class="team-card" id="member-1">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300" class="avatar" id="img-member-1">
+                <h4 id="name-member-1">Ryan Reyes</h4>
+                <div class="rank">Chief of Police</div>
+                <p class="bio" id="bio-member-1">Najvyšší veliteľ LSPD, zodpovedný za strategické riadenie a komunikáciu s mestskou radou.</p>
+                
+                <div class="admin-edit">
+                    <input type="text" id="input-img-member-1" placeholder="URL novej fotky">
+                    <textarea id="input-bio-member-1" placeholder="Nový životopis"></textarea>
+                    <button class="btn-action" onclick="saveMember('member-1')">Uložiť člena</button>
+                </div>
+            </div>
 
-    <section class="tech-section">
-        <img src="https://i.imgur.com/7bA7j5b.png" alt="LSPD Autá" class="tech-img">
-        <div class="tech-text">
-            <h3>Technologická převaha</h3>
-            <p>Zločin v Los Santos se vyvíjí, my jsme krok před ním. Naše vybavení není jen nástroj, je to naše výhoda. Pokročilé komunikační ředitelství pro bezpečné operace. Taktické vybavení testované v nejnáročnějších podmínkách.</p>
-        </div>
-    </section>
+            <div class="team-card" id="member-2">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300" class="avatar" id="img-member-2">
+                <h4 id="name-member-2">James Cortés</h4>
+                <div class="rank">Assistant Chief</div>
+                <p class="bio" id="bio-member-2">Zástupca veliteľa, dohliada na denné operácie, schvaľovanie rozpočtov a vnútornú kontrolu.</p>
+                
+                <div class="admin-edit">
+                    <input type="text" id="input-img-member-2" placeholder="URL novej fotky">
+                    <textarea id="input-bio-member-2" placeholder="Nový životopis"></textarea>
+                    <button class="btn-action" onclick="saveMember('member-2')">Uložiť člena</button>
+                </div>
+            </div>
 
-    <section class="divisions-section">
-        <h3>Divize LSPD</h3>
-        <div class="grid-container">
-            <div class="card">
-                <h4>S.W.A.T.</h4>
-                <p>Vysoce specializovaná jednotka zaměřená na řešení krizových situací, taktické zásahy a ochranu civilistů.</p>
-            </div>
-            <div class="card">
-                <h4>Air Support Division</h4>
-                <p>Vzdušná podpora, pátrání po zločincích a záchranné mise v těžko dostupném terénu.</p>
-            </div>
-            <div class="card">
-                <h4>Traffic Enforcement Division</h4>
-                <p>Specialisté na vysokorychlostní stíhání a zajištění bezpečnosti na dálnicích San Andreas.</p>
-            </div>
-            <div class="card">
-                <h4>K-9 Unit</h4>
-                <p>Nasazení psovodů pro detekci omamných látek a zneškodnění nebezpečných pachatelů.</p>
-            </div>
-            <div class="card">
-                <h4>Detective Bureau</h4>
-                <p>Hloubkové vyšetřování trestné činnosti a sběr důkazů pro spravedlivý proces.</p>
-            </div>
-            <div class="card">
-                <h4>Operation Street Safety Bureau</h4>
-                <p>Monitorování a potírání nezákonných aktivit gangů přímo v ulicích města.</p>
-            </div>
         </div>
-        <a href="#" class="btn-blue">Všechny divize</a>
-    </section>
 
-    <section class="news-section">
-        <div class="news-header">
-            <h3>Novinky ve sboru</h3>
-            <a href="novinky.html" class="news-link">VŠECHNY NOVINKY »</a>
+        <h3 class="section-title">Novinky vo sboru</h3>
+        
+        <div id="add-news-form" style="background-color: #111827; padding: 20px; border-radius: 6px; margin-bottom: 30px; border: 1px solid #3b82f6;">
+            <h4>Pridať novú správu</h4>
+            <input type="text" id="news-title-input" placeholder="Nadpis novinky">
+            <textarea id="news-content-input" placeholder="Obsah správy..."></textarea>
+            <button class="btn-action" onclick="addNews()">Publikovať novinku</button>
         </div>
-        <div class="news-container">
+
+        <div class="news-container" id="news-feed">
             <div class="news-box">
-                <div class="news-date">14. DUBNA 2026</div>
-                <h4>Modernizace vozového parku TED</h4>
-                <p>Nové vysokorychlostní interceptory nasazeny do služby v oblasti Mission Row k potlačení nelegálních závodů.</p>
-                <a href="#" class="read-more">ČÍST HLÁŠENÍ</a>
-            </div>
-            <div class="news-box">
-                <div class="news-date">13. DUBNA 2026</div>
+                <div class="news-date">09. JÚNA 2026</div>
                 <h4>Strukturální změny ve vedení</h4>
                 <p>Ministerstvo spravedlnosti oznamuje změny na nejvyšších postech. Novým Chief of Police byl jmenován Ryan Reyes.</p>
-                <a href="#" class="read-more">ČÍST HLÁŠENÍ</a>
             </div>
         </div>
-    </section>
 
-    <footer>
-        los-santos-police-department.html | © 2026 - All Rights Reserved. Created by kuby5688 / prezie patrik
-    </footer>
+        <div id="export-section">
+            <h4>💾 Uloženie zmien na GitHub</h4>
+            <p>Keďže GitHub vyžaduje uloženie kódu, skopíruj si text z okna nižšie, otvor svoj súbor <b>index.html</b> na GitHube, vlož ho tam celý a ulož (Commit). Zmeny ostanú navždy!</p>
+            <textarea id="export-code" readonly onclick="this.select()"></textarea>
+        </div>
 
+    </div>
+
+    <script>
+        // Funkcia na prihlásenie
+        function loginAdmin() {
+            let password = prompt("Zadaj administrátorské heslo pre LSPD:");
+            
+            if (password === "LSPD2026") {
+                alert("Prístup povolený! Teraz môžeš upravovať vedenie a pridávať novinky.");
+                
+                // Zobrazenie editačných prvkov
+                let edits = document.querySelectorAll('.admin-edit');
+                edits.forEach(el => el.style.display = 'block');
+                
+                document.getElementById('add-news-form').style.display = 'block';
+                document.getElementById('export-section').style.display = 'block';
+                updateExportCode();
+            } else {
+                alert("Nesprávne heslo! Prístup zamietnutý.");
+            }
+        }
+
+        // Uloženie zmien vo vedení
+        function saveMember(id) {
+            let imgInput = document.getElementById('input-img-' + id).value;
+            let bioInput = document.getElementById('input-bio-' + id).value;
+
+            if (imgInput) document.getElementById('img-' + id).src = imgInput;
+            if (bioInput) document.getElementById('bio-' + id).innerText = bioInput;
+
+            alert("Zmeny sa aplikovali na tejto stránke!");
+            updateExportCode();
+        }
+
+        // Pridanie novej novinky
+        function addNews() {
+            let title = document.getElementById('news-title-input').value;
+            let content = document.getElementById('news-content-input').value;
+            
+            if (!title || !content) {
+                alert("Vyplň nadpis aj obsah!");
+                return;
+            }
+
+            let today = new Date();
+            let dateStr = String(today.getDate()).padStart(2, '0') + ". " + String(today.getMonth() + 1).padStart(2, '0') + ". " + today.getFullYear();
+
+            let newsFeed = document.getElementById('news-feed');
+            
+            let newBox = document.createElement('div');
+            newBox.className = 'news-box';
+            newBox.innerHTML = `<div class="news-date">${dateStr.toUpperCase()}</div><h4>${title}</h4><p>${content}</p>`;
+            
+            newsFeed.insertBefore(newBox, newsFeed.firstChild);
+
+            // Vyčistenie formulára
+            document.getElementById('news-title-input').value = '';
+            document.getElementById('news-content-input').value = '';
+
+            alert("Novinka pridaná do zoznamu!");
+            updateExportCode();
+        }
+
+        // Funkcia, ktorá vygeneruje čisté HTML na skopírovanie pre GitHub
+        function updateExportCode() {
+            // Skryjeme admin panely pred vygenerovaním, aby sa neuložili otvorené formuláre
+            let edits = document.querySelectorAll('.admin-edit');
+            edits.forEach(el => el.style.display = 'none');
+            document.getElementById('add-news-form').style.display = 'none';
+            document.getElementById('export-section').style.display = 'none';
+
+            let currentHTML = "<!DOCTYPE html>\n<html lang=\"sk\">\n" + document.documentElement.innerHTML + "\n</html>";
+            document.getElementById('export-code').value = currentHTML;
+
+            // Znova zobrazíme admin prvky, aby mohol admin pokračovať
+            edits.forEach(el => el.style.display = 'block');
+            document.getElementById('add-news-form').style.display = 'block';
+            document.getElementById('export-section').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
